@@ -2,6 +2,7 @@ defmodule ProyectoBasesApiWeb.Router do
   use ProyectoBasesApiWeb, :router
 
   pipeline :api do
+    plug CORSPlug, origin: "*"
     plug :accepts, ["json"]
   end
 
