@@ -15,6 +15,11 @@ defmodule ProyectoBasesApiWeb.Router do
     resources "/test", TestController, only: [:index]
   end
 
+  scope "/api", ProyectoBasesApiWeb do
+    pipe_through :api
+    resources "/table/attributes", TableAttributesController, only: [:index]
+  end
+
   pipeline :browser do
     plug(:accepts, ["html"])
   end
