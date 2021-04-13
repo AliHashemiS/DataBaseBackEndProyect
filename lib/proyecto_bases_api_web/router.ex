@@ -20,6 +20,11 @@ defmodule ProyectoBasesApiWeb.Router do
     resources "/table/attributes", TableAttributesController, only: [:index]
   end
 
+  scope "/api", ProyectoBasesApiWeb do
+    pipe_through :api
+    resources "/table/attributes/privilege", AttributesController, only: [:index]
+  end
+
   pipeline :browser do
     plug(:accepts, ["html"])
   end
