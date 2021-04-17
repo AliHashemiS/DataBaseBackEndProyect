@@ -10,16 +10,21 @@ defmodule ProyectoBasesApiWeb.Router do
     pipe_through :api
   end
 
+  #Path para obtener las tablas de la base de datos
+  #/api/tabla
   scope "/api", ProyectoBasesApiWeb do
     pipe_through :api
-    resources "/test", TestController, only: [:index]
+    resources "/tabla", TablaController, only: [:index]
   end
 
+  #Path para obtener los atributos de la tabla
+  #/api/table/attributes
   scope "/api", ProyectoBasesApiWeb do
     pipe_through :api
     resources "/table/attributes", TableAttributesController, only: [:index]
   end
 
+  #Path para obtener los privilegios de un atributo de una tabla
   scope "/api", ProyectoBasesApiWeb do
     pipe_through :api
     resources "/table/attributes/privilege", AttributesController, only: [:index]
